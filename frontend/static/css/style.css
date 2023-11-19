@@ -9,3 +9,15 @@ h1 {
 }
 
 /* Add your styles here */
+/* frontend/static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #007bff;
+}
+
+p {
+    color: #333;
+}

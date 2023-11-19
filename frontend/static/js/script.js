@@ -1,2 +1,2 @@
-// static/js/script.js
-// Your JavaScript code goes here
+// frontend/static/js/script.js
+console.log('Script loaded.');
