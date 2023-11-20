@@ -76,7 +76,6 @@
             margin-top: 20px;
         }
 
-        /* Additional styles for the payment form */
         .payment-form {
             display: none;
             background-color: #fff;
@@ -125,15 +124,12 @@
                     <td>Monthly Membership Fee</td>
                     <td>$50.00</td>
                 </tr>
-                <!-- Add more rows as needed -->
             </table>
 
-            <!-- Payment Button -->
             <div class="payment-button">
                 <button onclick="showPaymentForm()">Make Payment</button>
             </div>
 
-            <!-- Payment Form (Initially hidden) -->
             <div class="payment-form" id="paymentForm">
                 <label for="creditCardNumber">Credit Card Number:</label>
                 <input type="text" id="creditCardNumber" placeholder="Enter credit card number">
@@ -152,29 +148,22 @@
         </div>
     </main>
 
-<!-- Placeholder JavaScript functions -->
 <script>
     function showPaymentForm() {
-        // Display the payment form
-        document.getElementById("paymentForm").style.display = "block";
+        document.getElementById("paymentForm").style.display = "block"; //payment form
     }
 
     function processPayment() {
-        // Placeholder for processing payment (in a real scenario, call a payment gateway's API)
         alert("Simulating payment processing...");
-
-        // Clear the input fields
+        // clear input
         document.getElementById("creditCardNumber").value = "";
         document.getElementById("cvv").value = "";
         document.getElementById("expirationDate").value = "";
         document.getElementById("zipcode").value = "";
 
-        // After successful payment, you might redirect the user to a thank you page or update the UI accordingly
-        // For now, let's simulate a successful payment after a short delay
         setTimeout(function () {
             alert("Payment successful!");
-            // You may want to hide the form or perform additional actions
-        }, 2000);
+        }, 1000);
     }
 </script>
 
