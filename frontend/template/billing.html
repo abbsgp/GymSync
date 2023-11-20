@@ -69,11 +69,32 @@
 
         .billing-statement th {
             background-color: #add8e6;
-            color: rgb(0, 0, 0);
+            color: white;
         }
 
         .payment-button {
             margin-top: 20px;
+        }
+
+        /* Additional styles for the payment form */
+        .payment-form {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .payment-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .payment-form button {
+            display: block;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -86,8 +107,8 @@
 
     <nav>
         <a href="home.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="logout.html">Logout</a>
+        <a href="profile.html">User Account</a>
+        <a href="login.html">Logout</a>
     </nav>
 
     <main>
@@ -100,17 +121,63 @@
                     <th>Amount</th>
                 </tr>
                 <tr>
-                    <td>11.01.2023</td>
+                    <td>2023-01-01</td>
                     <td>Monthly Membership Fee</td>
                     <td>$50.00</td>
-                </tr>   
+                </tr>
+                <!-- Add more rows as needed -->
             </table>
+
+            <!-- Payment Button -->
+            <div class="payment-button">
+                <button onclick="showPaymentForm()">Make Payment</button>
+            </div>
+
+            <!-- Payment Form (Initially hidden) -->
+            <div class="payment-form" id="paymentForm">
+                <label for="creditCardNumber">Credit Card Number:</label>
+                <input type="text" id="creditCardNumber" placeholder="Enter credit card number">
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="Enter CVV">
+
+                <label for="expirationDate">Expiration Date:</label>
+                <input type="text" id="expirationDate" placeholder="Enter expiration date">
+
+                <label for="zipcode">Zip Code:</label>
+                <input type="text" id="zipcode" placeholder="Enter zip code">
+
+                <button onclick="processPayment()">Submit Payment</button>
+            </div>
         </div>
-        <div class="payment-button">
-            <button onclick="handlePayment()">Make Payment</button>
-        </div>
-    </div>
     </main>
+
+<!-- Placeholder JavaScript functions -->
+<script>
+    function showPaymentForm() {
+        // Display the payment form
+        document.getElementById("paymentForm").style.display = "block";
+    }
+
+    function processPayment() {
+        // Placeholder for processing payment (in a real scenario, call a payment gateway's API)
+        alert("Simulating payment processing...");
+
+        // Clear the input fields
+        document.getElementById("creditCardNumber").value = "";
+        document.getElementById("cvv").value = "";
+        document.getElementById("expirationDate").value = "";
+        document.getElementById("zipcode").value = "";
+
+        // After successful payment, you might redirect the user to a thank you page or update the UI accordingly
+        // For now, let's simulate a successful payment after a short delay
+        setTimeout(function () {
+            alert("Payment successful!");
+            // You may want to hide the form or perform additional actions
+        }, 2000);
+    }
+</script>
+
 
 </body>
 
