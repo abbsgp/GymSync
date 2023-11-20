@@ -80,18 +80,28 @@
 
         <table>
             <tr>
-                <td style="font-size: 20px;"><b>Name  </b></td>
+                <td style="font-size: 20px;"><b>Name</b></td>
                 <!-- to be passed from flask -->
                 <td>{{ user.name}}</td> 
             </tr>
             <tr>
-                <td style="font-size: 20px;"><b>Member ID  </b></td>
+                <td style="font-size: 20px;"><b>Email</b></td>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 20px;"><b>Address</b></td>
+                <!-- to be passed from flask -->
+                <td>{{ user.address}}</td> 
+            </tr>
+            <tr>
+                <td style="font-size: 20px;"><b>Member ID</b></td>
                 <!-- to be passed from flask -->
                 <td>{{ user.memberID}}</td> 
             </tr>
             <tr>
-                <td style="font-size: 20px;"><b>Email  </b></td>
-                <td>{{ user.email }}</td>
+                <td style="font-size: 20px;"><b>Membership Type</b></td>
+                <!-- to be passed from flask -->
+                <td>{{ user.membershipType}}</td> 
             </tr>
         </table>
 
