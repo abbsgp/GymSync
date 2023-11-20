@@ -37,30 +37,64 @@
             color: black;
         }
 
+
         main {
             padding: 20px;
             text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; /* Add margin to create space between table and content */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Welcome to Your User Page</h1>
+        <h1>GymSync</h1>
     </header>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#profile">Profile</a>
-        <a href="#settings">Settings</a>
-        <a href="#logout">Logout</a>
+        <a href="home.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="settings.html">Settings</a>
+        <a href="logout.html">Logout</a>
         <!-- Add more links as needed -->
     </nav>
 
     <main>
         <!-- Content of the user page goes here -->
-        <h2>Your User Page Content</h2>
-        <p>This is where you can display information and features available to the user.</p>
+        <h2 style="font-size: 35px;"> Account Information </h2>
+
+        <table>
+            <tr>
+                <td style="font-size: 20px;"><b>Name  </b></td>
+                <!-- to be passed from flask -->
+                <td>{{ user.name}}</td> 
+            </tr>
+            <tr>
+                <td style="font-size: 20px;"><b>Member ID  </b></td>
+                <!-- to be passed from flask -->
+                <td>{{ user.memberID}}</td> 
+            </tr>
+            <tr>
+                <td style="font-size: 20px;"><b>Email  </b></td>
+                <td>{{ user.email }}</td>
+            </tr>
+        </table>
+
     </main>
 
 </body>
