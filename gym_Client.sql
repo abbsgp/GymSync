@@ -27,18 +27,15 @@ CREATE TABLE `Client` (
   `Fname` varchar(50) NOT NULL,
   `Lname` varchar(50) NOT NULL,
   `Contact_Information` varchar(50) NOT NULL,
-  PRIMARY KEY (`Member_Id`)
+  `Health` varchar(50) DEFAULT NULL,
+  `Meal` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Member_Id`),
+  UNIQUE KEY `Health` (`Health`),
+  UNIQUE KEY `Meal` (`Meal`),
+  CONSTRAINT `client_ibfk_1` FOREIGN KEY (`Health`) REFERENCES `Trainer` (`Health`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `client_ibfk_2` FOREIGN KEY (`Meal`) REFERENCES `Trainer` (`Meal`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Client`
---
-
-LOCK TABLES `Client` WRITE;
-/*!40000 ALTER TABLE `Client` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Client` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -49,4 +46,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-19 17:10:25
+-- Dump completed on 2023-11-19 21:34:08

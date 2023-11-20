@@ -28,18 +28,11 @@ CREATE TABLE `Manager` (
   `Lname` varchar(50) NOT NULL,
   `Branch_Location` varchar(50) NOT NULL,
   KEY `Manager_Id` (`Manager_Id`),
-  CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`Manager_Id`) REFERENCES `Employee` (`Employee_Id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `Branch_Location` (`Branch_Location`),
+  CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`Manager_Id`) REFERENCES `Employee` (`Employee_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `manager_ibfk_2` FOREIGN KEY (`Branch_Location`) REFERENCES `Employee` (`Branch_Location`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Manager`
---
-
-LOCK TABLES `Manager` WRITE;
-/*!40000 ALTER TABLE `Manager` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Manager` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -50,4 +43,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-19 17:10:25
+-- Dump completed on 2023-11-19 21:34:08
