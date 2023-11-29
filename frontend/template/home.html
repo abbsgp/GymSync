@@ -90,12 +90,12 @@
     <nav>
         <a href="home.html">Home</a>
         <a href="profile.html">User Account</a>
-        <a href="login.html">Logout</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
     </nav>
 
     <main>
         <!--flask request-->
-        <h2>Welcome, {{ user.username }}!</h2>
+        <h2>Welcome, {% if user %}{{ user.username }}{% else %}Guest{% endif %}!</h2>
         <p>Are you a squat rack? Because every time I see you, my heart skips a beat &#128150;</p>
 
         <!-- Big Buttons Section -->

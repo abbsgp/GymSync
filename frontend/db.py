@@ -1,6 +1,6 @@
 # backend/db.py
 import pymysql.cursors
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 connection = pymysql.connect(
     host='localhost',
