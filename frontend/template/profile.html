@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #add8e6;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333; /* Dark background color for the navigation bar */
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd; /* Light background color on hover */
+            color: black;
+        }
+
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; /* Add margin to create space between table and content */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GymSync</h1>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="profile.html">User Account</a>
+        <a href="login.html">Logout</a>
+        <!-- Add more links as needed -->
+    </nav>
+
+    <main>
+        <!-- Content of the user page goes here -->
+        <h2 style="font-size: 35px;"> Account Information </h2>
+
+        <table>
+            <tr>
+                <td style="font-size: 20px;"><b>Name</b></td>
+                <!-- to be passed from flask -->
+                <td>{{ user.name}}</td> 
+            </tr>
+            <tr>
+                <td style="font-size: 20px;"><b>Email</b></td>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 20px;"><b>Address</b></td>
+                <!-- to be passed from flask -->
+                <td>{{ user.address}}</td> 
+            </tr>
+            <tr>
+                <td style="font-size: 20px;"><b>Member ID</b></td>
+                <!-- to be passed from flask -->
+                <td>{{ user.memberID}}</td> 
+            </tr>
+            <tr>
+                <td style="font-size: 20px;"><b>Membership Type</b></td>
+                <!-- to be passed from flask -->
+                <td>{{ user.membershipType}}</td> 
+            </tr>
+        </table>
+
+    </main>
+
+</body>
+</html>
