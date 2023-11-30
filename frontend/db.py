@@ -47,3 +47,26 @@ def check_password(username, password):
 
     return False
 
+def add_user(username, phone, password):
+    with connection.cursor() as cursor:
+        sql = 'SELECT MAX(Member_Id) FROM client'
+        cursor.execute(sql)
+        result = cursor.fetchone()
+        print(result)
+        
+        if result:
+            MemberID = str(int(result['MAX(Member_Id)']) + 1)
+
+            sql = 'INSERT INTO client (Member_Id, Contact_Information, Name, Password) VALUES (%s,%s,%s,%s)'
+            try:
+                cursor.execute(sql, (MemberID, phone, username, password))
+                connection.commit()
+                return True
+            except pymysql.Connection.Error as error: #alias
+                print(error)
+                return False
+
+    return False
+            
+
+

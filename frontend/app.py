@@ -1,6 +1,6 @@
 # backend/app.py
 from flask import Flask, render_template, request, redirect, url_for, session
-from db import get_user, get_name, check_password 
+from db import get_user, get_name, check_password, add_user
 
 app = Flask(__name__, template_folder='template')
 app.secret_key = b'2\xe9\x8c\xa3\xe0\xd6M\xa5$\xe7.h5\xb4v\xc6\xbaDmv\x98\x17\x9d\xe9'
@@ -32,6 +32,21 @@ def login():
         return render_template('login.html', message='Invalid username or password')
 
     return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        phone = request.form['phone']
+        password = request.form['password']
+
+        if add_user(username, phone, password):
+           return redirect(url_for('login'))
+    
+        return render_template('register.html', message='Cannot Register')
+    
+    return render_template('register.html')
+        
 
 @app.route('/logout')
 def logout():
