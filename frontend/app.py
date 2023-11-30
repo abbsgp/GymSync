@@ -8,7 +8,9 @@ app.secret_key = b'2\xe9\x8c\xa3\xe0\xd6M\xa5$\xe7.h5\xb4v\xc6\xbaDmv\x98\x17\x9
 @app.route('/')
 def home():
     if 'user' in session:
-        return render_template('home.html', user=session['user'])
+        # Convert 'id' to an integer
+        user_id = int(session['user']['id'])
+        return render_template('home.html', user_id=user_id)
     return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -18,7 +20,10 @@ def login():
         password = request.form['password']
 
         if check_password(username, password):
-            session['user'] = {'username': username}
+            user = get_user(username)
+            # Convert 'id' to an integer
+            user_id = int(user['id'])
+            session['user'] = {'id': user_id, 'username': username}
             return redirect(url_for('home'))
 
         return render_template('login.html', message='Invalid username or password')

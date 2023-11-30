@@ -26,7 +26,7 @@ CREATE TABLE `client` (
   `Member_Id` int unsigned NOT NULL,
   `Contact_Information` varchar(50) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL,
+  `Password` varchar(255) NOT NULL,
   PRIMARY KEY (`Member_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -37,7 +37,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (0,'907-416-8358','Clay Schroeder','d41d8cd98f00b204e9800998ecf8427e'),(3,'1-347-760-8504x9453','Noemie Crona','d41d8cd98f00b204e9800998ecf8427e'),(9,'597-051-6241','Keyshawn Schaefer','d41d8cd98f00b204e9800998ecf8427e'),(9335,'03456645857','Mr. Arno Rosenbaum','d41d8cd98f00b204e9800998ecf8427e'),(146782,'(599)702-0833x07234','Blaze Heidenreich','d41d8cd98f00b204e9800998ecf8427e');
+INSERT INTO `client` VALUES (100000,'907-416-8358','Clay Schroeder','d41d8cd98f00b204e9800998ecf8427e'),(100001,'347-760-8504','Noemie Crona','d41d8cd98f00b204e9800998ecf8427e'),(100002,'597-051-6241','Keyshawn Schaefer','d41d8cd98f00b204e9800998ecf8427e'),(100003,'345-664-5857','Amo Rosenbaum','d41d8cd98f00b204e9800998ecf8427e'),(100004,'599-702-0833','Blaze Heidenreich','d41d8cd98f00b204e9800998ecf8427e');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +63,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (0,'Bode Well','Raheem Maggio'),(3541,'Doyle Forks','Oran Kerluke'),(8250,'Hartmann Points','Alena Doyle'),(22100,'Altenwerth Vista','Miss Margaret Becker MD'),(1342726,'Daugherty Manor','Adaline Bartoletti');
+INSERT INTO `employee` VALUES (200000,'Bode Well','Raheem Maggio'),(200001,'Doyle Forks','Oran Kerluke'),(200002,'Hartmann Points','Alena Doyle'),(200003,'Altenwerth Vista','Margaret Becker'),(200004,'Daugherty Manor','Adaline Bartoletti');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +115,7 @@ CREATE TABLE `Gym_Membership_Card` (
 
 LOCK TABLES `Gym_Membership_Card` WRITE;
 /*!40000 ALTER TABLE `Gym_Membership_Card` DISABLE KEYS */;
-INSERT INTO `Gym_Membership_Card` VALUES (4,'2008-08-03','1',''),(60,'2023-08-19','1',''),(70408,'2003-03-25','1','1'),(4554140,'1988-01-20','','1'),(943481206,'1974-02-14','1','');
+INSERT INTO `Gym_Membership_Card` VALUES (100000,'2023-12-31','1',''),(100001,'2024-12-31','1',''),(100002,'2023-12-31','1','1'),(100003,'2023-12-31','','1'),(100004,'2023-12-31','1','');
 /*!40000 ALTER TABLE `Gym_Membership_Card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `manager` (
 
 LOCK TABLES `manager` WRITE;
 /*!40000 ALTER TABLE `manager` DISABLE KEYS */;
-INSERT INTO `manager` VALUES (1342726,'Daugherty Manor','Adaline Bartoletti','d41d8cd98f00b204e9800998ecf8427e');
+INSERT INTO `manager` VALUES (200004,'Daugherty Manor','Adaline Bartoletti','d41d8cd98f00b204e9800998ecf8427e');
 /*!40000 ALTER TABLE `manager` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `trainer` (
 
 LOCK TABLES `trainer` WRITE;
 /*!40000 ALTER TABLE `trainer` DISABLE KEYS */;
-INSERT INTO `trainer` VALUES (0,'Bode Well','a',1,'Raheem Maggio','d41d8cd98f00b204e9800998ecf8427e'),(3541,'Doyle Forks','q',1,'Oran Kerluke','d41d8cd98f00b204e9800998ecf8427e'),(8250,'Hartmann Points','s',1,'Alena Doyle','d41d8cd98f00b204e9800998ecf8427e'),(22100,'Altenwerth Vista','z',1,'Miss Margaret Becker MD','d41d8cd98f00b204e9800998ecf8427e');
+INSERT INTO `trainer` VALUES (200000,'Bode Well','a',1,'Raheem Maggio','d41d8cd98f00b204e9800998ecf8427e'),(200001,'Doyle Forks','q',1,'Oran Kerluke','d41d8cd98f00b204e9800998ecf8427e'),(200002,'Hartmann Points','s',1,'Alena Doyle','d41d8cd98f00b204e9800998ecf8427e'),(200003,'Altenwerth Vista','z',1,'Margaret Becker','d41d8cd98f00b204e9800998ecf8427e');
 /*!40000 ALTER TABLE `trainer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-20 15:32:26
+-- Dump completed on 2023-11-28  0:17:45

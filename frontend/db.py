@@ -1,6 +1,5 @@
 # backend/db.py
 import pymysql.cursors
-from werkzeug.security import check_password_hash, generate_password_hash
 
 connection = pymysql.connect(
     host='localhost',
@@ -20,24 +19,17 @@ def get_user(username):
             return {
                 'id': result['Member_Id'],
                 'username': result['Name'],
-                'password_hash': result['Password']
+                'password': result['Password']
             }
 
     return None
 
-def create_user(username, password):
-    hashed_password = generate_password_hash(password, method='sha256')
-
-    with connection.cursor() as cursor:
-        sql = 'INSERT INTO client (Name, Password) VALUES (%s, %s)'
-        cursor.execute(sql, (username, hashed_password))
-
-    connection.commit()
-
 def check_password(username, password):
     user = get_user(username)
+    print(username, password, user)
 
-    if user and check_password_hash(user['password_hash'], password):
+    if user and user['password'] == password:
         return True
 
     return False
+

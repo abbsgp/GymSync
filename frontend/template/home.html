@@ -1,128 +1,26 @@
+<!-- template/home.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        header {
-            background-color: #add8e6;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .big-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .button {
-            background-color: #add8e6;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .button a {
-            text-decoration: none;
-            color: #000000;
-        }
-
-        .billing {
-            grid-area: 1 / 1 / 2 / 2;
-        }
-
-        .progress {
-            grid-area: 1 / 2 / 2 / 3;
-        }
-
-        .messaging {
-            grid-area: 2 / 1 / 3 / 2;
-        }
-
-        .locations {
-            grid-area: 2 / 2 / 3 / 3;
-        }
+        /* Your existing styles */
     </style>
 </head>
-
 <body>
-
     <header>
         <h1>GymSync</h1>
     </header>
-
     <nav>
-        <a href="home.html">Home</a>
-        <a href="profile.html">User Account</a>
+        <a href="{{ url_for('home') }}">Home</a>
         <a href="{{ url_for('logout') }}">Logout</a>
     </nav>
-
     <main>
-        <!--flask request-->
         <h2>Welcome, {% if user %}{{ user.username }}{% else %}Guest{% endif %}!</h2>
         <p>Are you a squat rack? Because every time I see you, my heart skips a beat &#128150;</p>
-
-        <!-- Big Buttons Section -->
-        <div class="big-buttons">
-            <div class="button billing">
-                <a href="billing.html">
-                    <p>Billing</p>
-                </a>
-            </div>
-            <div class="button progress">
-                <a href="progress.html">
-                    <p>Progress</p>
-                </a>
-            </div>
-            <div class="button messaging">
-                <a href="messaging.html">
-                    <p>Messaging</p>
-                </a>
-            </div>
-            <div class="button locations">
-                <a href="locations.html">
-                    <p>Locations</p>
-                </a>
-            </div>
-        </div>
+        <!-- Your existing content -->
     </main>
-
 </body>
-
 </html>
