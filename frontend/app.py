@@ -1,6 +1,6 @@
 # backend/app.py
 from flask import Flask, render_template, request, redirect, url_for, session
-from db import get_user, check_password
+from db import get_user, get_name, check_password 
 
 app = Flask(__name__, template_folder='template')
 app.secret_key = b'2\xe9\x8c\xa3\xe0\xd6M\xa5$\xe7.h5\xb4v\xc6\xbaDmv\x98\x17\x9d\xe9'
@@ -10,7 +10,10 @@ def home():
     if 'user' in session:
         # Convert 'id' to an integer
         user_id = int(session['user']['id'])
-        return render_template('home.html', user_id=user_id)
+        user=get_name(user_id)['username']
+        print(user) #shows the selected user
+
+        return render_template('home.html', user=user)
     return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -32,8 +35,8 @@ def login():
 
 @app.route('/logout')
 def logout():
-    session.pop('user', None)
-    return redirect(url_for('home'))
+    session.clear()
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

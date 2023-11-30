@@ -24,6 +24,20 @@ def get_user(username):
 
     return None
 
+def get_name(user_id):
+    with connection.cursor() as cursor:
+        sql = 'SELECT * FROM client WHERE Member_id = %s'
+        cursor.execute(sql, (user_id,))
+        result = cursor.fetchone() #fetches the first one
+
+        if result:
+            return{
+                'id': result['Member_Id'],
+                'username': result['Name'],
+                'password': result['Password']
+            }
+
+
 def check_password(username, password):
     user = get_user(username)
     print(username, password, user)
