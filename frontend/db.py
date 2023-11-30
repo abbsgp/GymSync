@@ -1,5 +1,6 @@
 # backend/db.py
 import pymysql.cursors
+import bcrypt
 
 connection = pymysql.connect(
     host='localhost',
@@ -42,10 +43,14 @@ def check_password(username, password):
     user = get_user(username)
     print(username, password, user)
 
-    if user and user['password'] == password:
-        return True
-
+    try:
+        if user and bcrypt.checkpw(password.encode('utf-8'), bytes(user['password'], 'utf-8')):
+            return True
+    except:
+        return False
+    
     return False
+
 
 def add_user(username, phone, password):
     with connection.cursor() as cursor:

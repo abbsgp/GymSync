@@ -1,6 +1,7 @@
 # backend/app.py
 from flask import Flask, render_template, request, redirect, url_for, session
 from db import get_user, get_name, check_password, add_user
+import bcrypt
 
 app = Flask(__name__, template_folder='template')
 app.secret_key = b'2\xe9\x8c\xa3\xe0\xd6M\xa5$\xe7.h5\xb4v\xc6\xbaDmv\x98\x17\x9d\xe9'
@@ -33,12 +34,17 @@ def login():
 
     return render_template('login.html')
 
+def hash_password(password):
+    result = bcrypt.hashpw(password.encode('utf-8'), str(bcrypt.gensalt()))
+    return result
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         username = request.form['username']
         phone = request.form['phone']
         password = request.form['password']
+        password = hash_password(password)
 
         if add_user(username, phone, password):
            return redirect(url_for('login'))
@@ -55,3 +61,6 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
