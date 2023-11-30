@@ -67,9 +67,9 @@
     </header>
 
     <nav>
-        <a href="home.html">Home</a>
-        <a href="profile.html">User Account</a>
-        <a href="login.html">Logout</a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('profile') }}">User Account</a>
+        <a href="{{ url_for('logout') }}" >Logout</a>
         <!-- Add more links as needed -->
     </nav>
 
@@ -81,26 +81,21 @@
             <tr>
                 <td style="font-size: 20px;"><b>Name</b></td>
                 <!-- to be passed from flask -->
-                <td>{{ user.name}}</td> 
+                <td>{{ user }}</td> 
             </tr>
             <tr>
-                <td style="font-size: 20px;"><b>Email</b></td>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <td style="font-size: 20px;"><b>Address</b></td>
-                <!-- to be passed from flask -->
-                <td>{{ user.address}}</td> 
+                <td style="font-size: 20px;"><b>Phone</b></td>
+                <td>{{ phone }}</td>
             </tr>
             <tr>
                 <td style="font-size: 20px;"><b>Member ID</b></td>
                 <!-- to be passed from flask -->
-                <td>{{ user.memberID}}</td> 
+                <td>{{ memberid }}</td> 
             </tr>
             <tr>
                 <td style="font-size: 20px;"><b>Membership Type</b></td>
                 <!-- to be passed from flask -->
-                <td>{{ user.membershipType}}</td> 
+                <td>monthly gym membership</td> 
             </tr>
         </table>
 

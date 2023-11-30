@@ -35,7 +35,7 @@ def login():
     return render_template('login.html')
 
 def hash_password(password):
-    result = bcrypt.hashpw(password.encode('utf-8'), str(bcrypt.gensalt()))
+    result = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     return result
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -59,8 +59,31 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
+@app.route('/billing')
+def billing():
+    return render_template('billing.html')
+
+@app.route('/profile')
+def profile():
+    if 'user' in session:
+        # Convert 'id' to an integer
+        user_id = int(session['user']['id'])
+        
+        user=get_name(user_id)['username']
+        memberid = get_name(user_id)['id']
+        phone = get_name(user_id)['phone']
+
+        print(user) #shows the selected user
+
+        return render_template('profile.html', user = user, memberid=memberid, phone=phone)
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
 
 
 

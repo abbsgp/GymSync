@@ -35,7 +35,8 @@ def get_name(user_id):
             return{
                 'id': result['Member_Id'],
                 'username': result['Name'],
-                'password': result['Password']
+                'password': result['Password'],
+                'phone': result['Contact_Information']
             }
 
 

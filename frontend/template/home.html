@@ -88,9 +88,8 @@
     </header>
 
     <nav>
-        <a href="home.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="settings.html">Settings</a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
         <a href="{{ url_for('logout') }}" >Logout</a>
         
     </nav>
@@ -103,7 +102,7 @@
         <!-- Big Buttons Section -->
         <div class="big-buttons">
             <div class="button billing">
-                <a href="billing.html">
+                <a href="{{ url_for('billing') }}">
                     <p>Billing</p>
                 </a>
             </div>
